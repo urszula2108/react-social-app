@@ -1,19 +1,37 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./Home.css"
-import PopUp from "../popup/PopUp"
 import { Link } from "react-router-dom"
+import PopUp from "../popup/PopUp"
 
 
 const Home = () => {
 
+  const [show, setShow] = useState(false)
+  const [showPopUp, setShowPopUp] = useState(false)
+
+
+  // On componentDidMount set the timer
+  useEffect(() => {
+    console.log(`useEffect!`);
+
+    let timeId = setTimeout(PopUpStatusChange, 10000)
+
+    return () => {
+      clearTimeout(timeId)
+    }
+  }, []);
+
+
+  const PopUpStatusChange = () => {
+
+    setShowPopUp(!showPopUp)
+  }
 
 
 
 
   return (
     <>
-
-      <PopUp />
       <nav className="nav">
         <ul>
           <li className="nav-item">
@@ -29,14 +47,19 @@ const Home = () => {
         </ul>
       </nav>
       <header className="header">
-        <h1>Social App</h1>
+        <h1 className="main-title">Social App</h1>
       </header>
 
-      <section className="feed-section">
-        <h3>Have a look at the feed of other users!</h3>
+      <PopUp showPopUp={showPopUp}/>
 
-        <div className="feed">
-          [feed other users]
+      <section className="welcome-section">
+        <h3 className="welcome-section-header">Do you want to join them?</h3>
+
+
+        <div className="feed-container">
+          <figure className="main-feed">
+            [feed other users]
+          </figure>
         </div>
       </section>
 
@@ -48,3 +71,7 @@ const Home = () => {
 }
 
 export default Home
+
+
+
+

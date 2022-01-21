@@ -1,14 +1,14 @@
 /* rest styles */
 
-
 .header {
   margin-top: 20px;
   height: 100px;
 }
 
-
-h1 {
+.main-title {
   color: whitesmoke;
+  font-size: 70px;
+  text-shadow: 8px 9px rgb(31, 162, 195);
 }
 
 h3 {
@@ -25,24 +25,47 @@ h3 {
   display: inline;
   text-decoration: none;
   padding: 15px;
-  transition: all 0.5s ease-in-out;
 }
 
 .nav-item:hover {
   cursor: pointer;
   text-decoration: underline;
-  font-size: 17px;
+  color: rgb(31, 162, 195);
 }
 
 .link {
   color: whitesmoke;
 }
 
-.feed-section {
-  height: 300px;
+.welcome-section {
+  height: 400px;
   color: whitesmoke;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
+.welcome-section-header {
+  border-bottom: 2px solid rgb(165, 207, 231);
+  padding-bottom: 15px;
+  width: fit-content;
+}
+
+.feed-container {
+  margin: 0 200px;
+  flex-basis: 100%;
+}
+
+.main-feed {
+  width: 40vw;
+  height: 40vh;
+  margin: auto;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 15px;
+}
 
 .footer {
   background-color: rgba(145, 215, 255, 0.534);

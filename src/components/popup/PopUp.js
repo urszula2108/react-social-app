@@ -1,38 +1,39 @@
-import React from "react"
-import "./PopUp.css"
-import { useState, useEffect } from 'react'
+import './PopUp.css'
 
 
-const PopUp = () => {
-
-  const [show, setShow] = useState(false)
-
-  // On componentDidMount set the timer
-  useEffect(() => {
-    console.log(`useEffect!`);
-    const timeId = setTimeout(() => {
-      // After 3 seconds set the show value to false
-      setShow(true)
-    }, 3000)
-
-    return () => {
-      clearTimeout(timeId)
-    }
-  }, []);
+const PopUp = (showPopUp) => {
 
 
-  // If show is false the component will return null and stop here
-  if (show) {
-    return null;
-  }
-
-  // If show is true this will be returned
   return (
-    <div>
-      {alert(`Halo tu alert`)}
-    </div>
+    <>
+      <section className={`${!showPopUp ? '' : 'active'}   popup`}>
+        <div className='login-popup'>
+          <div className='popup-box solid'>
+            <form className='form'>
+              <h1 className='login-header'>Sign in!</h1>
+              <label htmlFor="userName">Username</label><br />
+              <input
+                type="text"
+                name='userName'
+                id='userName'
+                className='login-box' /><br />
+              <label htmlFor="password">Password</label><br />
+              <input
+                type="password"
+                name='password'
+                id="password" className='login-box' /><br /><br />
+              <input
+                type='submit'
+                value='LOGIN'
+                className='login-btn' />
+            </form>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
+
 
 
 export default PopUp
